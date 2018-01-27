@@ -34,13 +34,13 @@ export class ReportComponent implements OnInit {
   }
 
 
-  httpPostExample(first: string,password: string) {
+  httpPostExample(title: string,body: string,userId : number) {
 
     this.http.post("https://jsonplaceholder.typicode.com/posts",
     {
-      title: first,
-      body: password,
-      userId: 1
+      title: title,
+      body: body,
+      userId: userId
     })
         .subscribe(
             (val) => {
@@ -58,7 +58,12 @@ export class ReportComponent implements OnInit {
 
     onSubmitTemplateBased() {
       console.log('click');
-      this.httpPostExample(this.user.firstName,this.user.password);
+      this.httpPostExample(this.user.firstName,this.user.password,1);
+  }
+
+  postcar(car) {
+    console.log('a click');
+  this.httpPostExample('MG',car,17440000);
   }
 
 }
